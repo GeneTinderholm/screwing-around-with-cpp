@@ -1,10 +1,12 @@
 #include <stdlib.h>
 #include "Stack.hpp"
-#include "LinkedList.hpp"
 #include "NullPointerException.hpp"
 
-Stack::Stack(): head(NULL) {};
-int Stack::peek() {
+template <class T>
+Stack<T>::Stack(): head(NULL) {};
+
+template <class T>
+T Stack<T>::peek() {
     if (head == NULL) {
         NullPointer np;
         throw np;
@@ -12,9 +14,10 @@ int Stack::peek() {
     return head->value;
 }
 
-int Stack::depth() {
+template <class T>
+int Stack<T>::depth() {
     int count = 0;
-    int_node* cur = head;
+    Node<T>* cur = head;
 
     while (head != NULL) {
         cur = head->next;
@@ -24,9 +27,10 @@ int Stack::depth() {
     return count;
 }
 
-int Stack::pop() {
-    int val = head->value;
-    int_node* tmp = head;
+template <class T>
+T Stack<T>::pop() {
+    T val = head->value;
+    Node<T>* tmp = head;
 
     head = head->next;
     free(tmp);
@@ -34,14 +38,16 @@ int Stack::pop() {
     return val;
 }
 
-void Stack::push(int val) {
-    int_node* tmp = (int_node*) malloc(sizeof(int_node));
-    tmp->value = val;
+template <class T>
+void Stack<T>::push(T value) {
+    Node<T>* tmp = (Node<T>*) malloc(sizeof(T));
+    tmp->value = value;
     tmp->next = head;
     head = tmp;
 }
 
-bool Stack::is_empty() {
+template <class T>
+bool Stack<T>::is_empty() {
     return head == NULL;
 }
 

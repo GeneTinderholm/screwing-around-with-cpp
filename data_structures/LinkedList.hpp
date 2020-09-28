@@ -1,7 +1,11 @@
 #ifndef __LINKEDLIST_H
 #define __LINKEDLIST_H
-typedef struct int_node {
-    int value;
-    struct int_node* next;
-} int_node;
+
+template <class T>
+
+struct Node {
+    T value;
+    struct Node* next;
+};
+
 #endif
