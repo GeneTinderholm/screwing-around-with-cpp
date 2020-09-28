@@ -2,14 +2,15 @@
 #define __STACK_H_
 #include "LinkedList.hpp"
 
+template <class T>
 class Stack {
-    int_node* head;
+    Node<T>* head;
     public:
         Stack();
-        int peek();
+        T peek();
+        T pop();
         int depth();
-        int pop();
-        void push(int);
+        void push(T value);
         bool is_empty();
 };
 #endif
