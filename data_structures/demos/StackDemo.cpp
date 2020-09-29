@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "../Stack.hpp"
-#include "../Stack.cpp"
 
 using std::cout;
 using std::string;
@@ -31,6 +30,7 @@ int main () {
     is.push(1);
 
     while(!is.is_empty()) {
-        cout << is.pop();
+        cout << is.pop() << " ";
     }
+    cout << "\n";
 }
