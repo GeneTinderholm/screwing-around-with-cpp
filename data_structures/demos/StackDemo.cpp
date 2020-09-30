@@ -13,6 +13,8 @@ int main () {
     ss.push("Hello");
 
     cout << "First some strings.\n";
+    ss.print();
+    cout << "\n";
 
     while(!ss.is_empty()) {
         cout << ss.pop();
@@ -28,6 +30,8 @@ int main () {
     is.push(4);
     is.push(2);
     is.push(1);
+    is.print();
+    cout << "\n";
 
     while(!is.is_empty()) {
         cout << is.pop() << " ";

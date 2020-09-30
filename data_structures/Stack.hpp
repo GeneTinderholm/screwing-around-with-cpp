@@ -2,6 +2,7 @@
 #define __STACK_H_
 #include <stdlib.h>
 #include "LinkedList.hpp"
+#include <iostream>
 #include "NullPointerException.hpp"
 
 template <class T>
@@ -48,6 +49,15 @@ class Stack {
 
         bool is_empty() {
             return head == NULL;
+        }
+
+        void print() {
+            Node<T>* curr = head;
+            while (curr->next != NULL) {
+                std::cout << curr->value << " -> ";
+                curr = curr->next;
+            }
+            std::cout << curr->value;
         }
 };
 #endif
