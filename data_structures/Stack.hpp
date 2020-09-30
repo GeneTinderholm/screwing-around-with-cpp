@@ -10,6 +10,13 @@ class Stack {
     Node<T>* head;
     public:
         Stack(): head(NULL) {};
+        ~Stack() {
+            while(head != NULL) {
+                Node<T>* tmp = head;
+                head = head->next;
+                free(head);
+            }
+        }
         T peek() {
             if (head == NULL) {
                 NullPointer np;
