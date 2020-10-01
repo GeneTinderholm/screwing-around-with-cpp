@@ -11,6 +11,7 @@ int main () {
     ss.push("World!");
     ss.push(", ");
     ss.push("Hello");
+    cout << "Test\n";
 
     cout << "First some strings.\n";
     ss.print();

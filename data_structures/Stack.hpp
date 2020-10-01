@@ -3,68 +3,20 @@
 #include <stdlib.h>
 #include "LinkedList.hpp"
 #include <iostream>
-#include "NullPointerException.hpp"
 
 template <class T>
 class Stack {
     Node<T>* head;
     public:
-        Stack(): head(NULL) {};
-        ~Stack() {
-            while(head != NULL) {
-                Node<T>* tmp = head;
-                head = head->next;
-                free(head);
-            }
-        }
-        T peek() {
-            if (head == NULL) {
-                NullPointer np;
-                throw np;
-            }
-            return head->value;
-        }
-
-        T pop() {
-            T val = head->value;
-            Node<T>* tmp = head;
-
-            head = head->next;
-            free(tmp);
-
-            return val;
-        }
-
-        int depth() {
-            int count = 0;
-            Node<T>* cur = head;
-
-            while (head != NULL) {
-                cur = head->next;
-                ++count;
-            }
-
-            return count;
-        }
-
-        void push(T value) {
-            Node<T>* tmp = (Node<T>*) malloc(sizeof(T));
-            tmp->value = value;
-            tmp->next = head;
-            head = tmp;
-        }
-
-        bool is_empty() {
-            return head == NULL;
-        }
-
-        void print() {
-            Node<T>* curr = head;
-            while (curr->next != NULL) {
-                std::cout << curr->value << " -> ";
-                curr = curr->next;
-            }
-            std::cout << curr->value;
-        }
+        Stack();
+        ~Stack();
+        T peek(); 
+        T pop(); 
+        int depth(); 
+        void push(T value); 
+        bool is_empty(); 
+        void print(); 
 };
+
+#include "Stack.tpp"
 #endif
