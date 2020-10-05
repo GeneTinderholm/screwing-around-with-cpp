@@ -5,9 +5,8 @@ std::string fizzbuzz(unsigned int n);
 
 int main (void) {
     for (int i = 1; i <= 100; ++i) {
-        std::cout << fizzbuzz(i) << " ";
+        std::cout << fizzbuzz(i) << "\n";
     }
-    std::cout << "\n";
 
     return 0;
 }
